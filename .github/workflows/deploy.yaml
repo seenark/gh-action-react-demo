@@ -9,10 +9,9 @@ on:
   pull_request:
     types:
       - opened
-# env:
-#   BUN_VERSION: 1.2.18
 jobs:
   build:
+    environment: prod
     runs-on: ubuntu-latest
     steps:
       - name: Print Bun version
