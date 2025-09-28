@@ -59,16 +59,30 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
 
-  notify:
+  notify-fail:
     runs-on: ubuntu-latest
     needs:
       - build
       - deploy
-    if: always()
+    if: failure()
     steps:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: https://discord.com/api/webhooks/1421697869458706533/W2UqZa7gD95EU7ixa4gQN3QLz3pWc3oFepvpv16XWxfpuMMTTiqbNULZWrBBmPfPlYBY
         uses: Ilshidur/action-discord@master
         with:
-          args: "Build ${{ github.sha }} by Oom"
+          args: "Build failed by Oom"
+
+  notify-sucess:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - deploy
+    if: success()
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: https://discord.com/api/webhooks/1421697869458706533/W2UqZa7gD95EU7ixa4gQN3QLz3pWc3oFepvpv16XWxfpuMMTTiqbNULZWrBBmPfPlYBY
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "Build success by Oom"
