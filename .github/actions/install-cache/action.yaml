@@ -3,8 +3,6 @@ description: Install deps and caching
 runs:
   using: composite
   steps:
-    - name: Clone repo
-      uses: actions/checkout@v5
     - name: Setup Bun
       uses: oven-sh/setup-bun@v2
       with:
