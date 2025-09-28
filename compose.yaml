@@ -1,0 +1,13 @@
+networks:
+  caddy:
+    external: true
+services:
+  web:
+    image: hadesgod/react-demo1
+    container_name: react
+    ports:
+      - 3000:3000
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - caddy
