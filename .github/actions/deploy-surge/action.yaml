@@ -1,0 +1,19 @@
+name: Deploy to Surge
+description: Deploy to Surge
+inputs:
+  token:
+    description: surge token
+    required: true
+  email:
+    description: surge email
+    required: true
+  dist-folder:
+    description: dist folder
+    required: false
+    default: dist
+  domain:
+    description: surge domain
+    required: true
+runs:
+  using: node24
+  main: dist-folder/index.js

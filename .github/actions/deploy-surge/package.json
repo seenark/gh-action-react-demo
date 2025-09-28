@@ -1,0 +1,19 @@
+{
+  "name": "deploy-surge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "./node_modules/.bin/tsdown"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "tsdown": "^0.15.5",
+    "typescript": "^5.9.2"
+  }
+}
